@@ -1,0 +1,188 @@
+// --------------------------------------------------------------------------------
+// Animaciones específicas
+// --------------------------------------------------------------------------------
+// CTA Dinámico "Conoce mi Perfil"
+// ----------------------------------------------------------
+
+.hero__scroll {
+
+    position: relative;
+    color: $white !important;
+    bottom: rem(-10);
+
+    @include bp(md) {
+        bottom: rem(-60);
+    }
+
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    padding-bottom: rem($gutter * 2);
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    transition: all .5s;
+
+    &:hover {
+        transform: scale(0.95);
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    left: 49%;
+    bottom: rem(10);
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0;
+    width: rem(20);
+    height: rem(20);
+    border-bottom: rem(5) solid $white;
+    border-right: rem(5) solid $white;
+    transform: translate(-50%, 0%);
+    animation: fade_move_down 2s ease-in-out infinite;
+}
+
+
+// ANIMACIÓN DE APARICIÓN GENERAL
+//----------------------------------------
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: 1s
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// ANIMACIÓN DE APARICIÓN solo de el hero header
+//----------------------------------------------------------------
+
+
+.more-box.fadeIn {
+    animation-delay: 2s;
+}
+
+.fadeScroll {
+    -webkit-animation: animat_show 0.8s;
+    animation: animat_show 0.8s;
+    visibility: visible !important;
+}
+
+@keyframes animat_show {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+// Animated scroll arrow animation
+//----------------------------------------------------------------
+@keyframes up_down {
+    0% {
+        transform: translate(0, -10px);
+    }
+
+    50% {
+        transform: translate(0, 10px);
+    }
+
+    100% {
+        transform: translate(0, -10px);
+    }
+}
+
+// Animated scroll arrow animation
+//----------------------------------------------------------------
+@keyframes fade_move_down {
+    0% {
+        transform: translate(0, -10px) rotate(45deg);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0, 10px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+// typewriter | PORTFOLIO
+// ------------------------------------------------
+
+
+.typewrite-txt {
+
+    span {
+        border-right: .02em solid $grey-dark;
+        animation: caret 1s steps(1) infinite;
+    }
+
+    @keyframes caret {
+        50% {
+            border-color: transparent;
+        }
+    }
+}
+
+
+.svg-wrapper {
+    position: relative;
+    //top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: rem(320);
+
+    svg {
+        overflow: hidden;
+        vertical-align: bottom;
+        position: absolute;
+        bottom: -10px;
+        right: -20px;
+    }
+
+    .shape {
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -474;
+        stroke-width: rem(8);
+        fill: transparent;
+        stroke: $magenta;
+        border-bottom: rem(5) solid $black;
+        transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    }
+
+    &:hover {
+        .shape {
+            stroke-width: rem(2);
+            stroke-dashoffset: 0;
+            stroke-dasharray: 760;
+        }
+    }
+}

@@ -1,0 +1,224 @@
+// --------------------------------------------------------------------------------
+// Navegadores de la Web
+// --------------------------------------------------------------------------------
+// NAV Menú
+// ----------------------------------------------------------
+#navbar {
+
+    @include bp(xs) {
+        .container-elemento {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba($secondary-color, 0);
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+
+    .main-row {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: calc(100vw - 10vw);
+
+        @include bp(md) {
+            width: calc(100vw - 10vw);
+        }
+
+        @include bp(xl) {
+            width: 1400px;
+        }
+    }
+
+    &.sticky {
+        background: $white;
+        box-shadow: $box-shadow-bottom;
+
+        ul li a {
+            color: $black;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $primary-color;
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .logo {
+        a {
+            color: $white;
+            font-size: rem(28);
+            margin-top: rem(5);
+
+            img {
+                width: rem(80);
+
+                @include bp(xs) {
+                    width: rem(50);
+                    // margin-left: rem(20);
+                }
+            }
+        }
+    }
+
+    .nav-links {
+
+        min-height: rem(60);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        @include bp($screen-sm, $screen-md) {
+            max-width: 100%;
+        }
+
+        // Desplegable Hamb
+        // ----------------------------------------------------------
+        @include bp(xs) {
+            position: absolute;
+            width: 101vw;
+            height: 100vh;
+            flex-flow: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            transform: translateX(150%);
+            transition: transform 0.5s ease-in;
+            background-color: $primary-color;
+            left: -6%;
+            right: 0;
+            top: 0;
+            font-family: $hero-font;
+        }
+
+        @include mq("mobile-landscape"){
+            align-items: center;
+        }
+        
+
+        li {
+            list-style: none;
+            min-width: max-content;
+            padding-left: rem(30);
+
+            @include bp(xs) {
+                padding-left: 0;
+                padding-top: rem(20);
+                margin-right: rem(40);
+            }
+            @include mq("mobile-landscape"){
+                margin-right: rem(-20);
+            }
+
+            &:nth-child(1) {
+                @include bp(xs) {
+                    margin-top: 10%;
+                }
+                @include mq("mobile-landscape"){
+                    margin-top: 0;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                font-size: rem(18);
+                font-weight: 600;
+                letter-spacing: rem(1);
+                color: $white;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $grey-darker;
+                }
+
+                @include bp(xs) {
+                    color: $white !important;
+                    text-decoration: none;
+                    font-size: 12vw;
+                    text-shadow: $txt-shadow;
+                }
+            }
+        }
+
+        &.isClosed {
+            transform: translateX(-100%);
+        }
+    }
+
+    .nav-active {
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    // Barras del Nav Hamb
+    // ----------------------------------------------------------
+    .burger {
+        position: absolute;
+        display: block;
+        cursor: pointer;
+        margin-left: calc(100vw - -50vw);
+        z-index: 1;
+
+        @include bp(sm) {
+            display: none;
+        }
+
+        
+
+        div {
+            width: rem(25);
+            height: rem(3);
+            background-color: $black;
+            margin: rem(5);
+            transition: all 0.3s ease;
+        }
+    }
+
+    .toggle {
+        .line1 {
+            transform: rotate(-45deg) translate(rem(-5), rem(6));
+        }
+
+        .line2 {
+            opacity: 0;
+        }
+
+        .line3 {
+            transform: rotate(45deg) translate(rem(-5), rem(-7));
+        }
+    }
+
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(rem(50));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+

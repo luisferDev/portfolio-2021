@@ -1,0 +1,251 @@
+.st-works {
+    .container-fluid>.container {
+
+        @include bp(sm) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .row.container {
+        overflow: visible;
+    }
+
+    .col-8 {
+        @include bp(xs) {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        @include mq("mobile-landscape") {
+            justify-content: flex-start;
+        }
+    }
+
+    .nav {    
+        height: auto;
+        
+        @include bp(md) {
+            min-height: rem(500);
+        }
+    
+        &.flex-column {
+            width: 100%;
+            
+            @include bp(md) {
+                justify-content: space-evenly;
+                align-items: flex-end;
+            }
+        }
+    
+        &.nav-pills {
+            
+            .nav-link {
+                
+                text-align: right;
+                border-radius: 0;
+                position: relative;
+                margin-right: rem(15);
+
+                @include bp(xl) {
+                    margin-right: rem(50);
+                }
+                @include mq("mobile-landscape") {
+                    text-align: left;
+                }
+    
+                &.active {
+                    background-color: transparent;
+                    border-radius: 0;
+    
+                    .mid-reverse,
+                    .mid {
+                        color: $white;
+                        font-size: 10vw;
+                        margin-bottom: 0;
+
+                        @include mq("mobile-landscape") {
+                            font-size: rem(40);
+                        }
+                        @include bp(sm) {
+                            font-size: 5vw;
+                        }
+                        @include bp(md) {
+                            font-size: 2.5vw;
+                        }
+
+                        @include bp($screen-lg-max) {
+                            font-size: 2.8vw;
+                        }
+                    }
+    
+                    .line {
+                        &:before {
+                            border: none;
+                        }
+                        &:hover {
+                            &:before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+    
+                .mid-reverse,
+                .mid {
+                    font-size: 7vw;
+                    transition: all .1s ease-in;
+                    margin-bottom: 0;
+
+                    @include mq("mobile-landscape") {
+                        font-size: 4vw;
+                    }
+                    @include bp(sm) {
+                        font-size: 3.5vw;
+                    }
+
+                    @include bp(md) {
+                        margin-bottom: rem($gutter*1.5);
+                        font-size: 2vw;
+                    }
+
+                    &:hover {
+                        color: $white
+                    }
+                }
+                .line {                    
+                    @include bp(md) {
+                        &:before {
+                            border-top: rem(3) solid $grey-darker;
+                            content: "";
+                            margin: 0 auto;
+                            position: absolute;
+                            left: 0;
+                            right: rem(15);
+                            bottom: rem(26);
+                            
+                            transition: all .1s ease-in;                        
+                        }
+                        &:hover {
+                            &:before {
+                                border-color: $white;
+                                transform: scale(1.3);
+                                border-width: rem(4);
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+
+    // Padding de la primera rowcontainer en la columna de las tabs
+    // -------------------------------------------------------------
+    .col-md-9 >.row.container {
+        
+        @include bp(md) {
+            padding: rem(30) rem(80);
+        }
+
+        @include bp(xl) {
+            padding: rem(60) rem(150);
+        }
+        
+    }
+
+    // Contenido de las Tabs
+    // -------------------------------------------------------------
+    .tab-content {
+        padding: rem(40);
+
+        @include bp(md) {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            padding: 0;
+        }
+    }
+    // Efecto del Grid de las Webs
+    // -------------------------------------------------------------
+    @include bp(md) {
+        .effect-magazine {
+            transition: all .3s ease-in-out;
+            .col-sm-3:nth-of-type(2) {
+                transform: translateX(-20%);
+                transition: all .3s ease-in-out;
+            }
+        
+            .col-sm-3:nth-of-type(3) {
+                transform: translateX(-40%);
+                transition: all .3s ease-in-out;
+            }
+            &:hover {
+                .col-sm-3:nth-of-type(2) {
+                    transform: translateX(0%);
+                }
+            
+                .col-sm-3:nth-of-type(3) {
+                    transform: translateX(0%);
+                }
+            }
+        }
+        .effect-magazine2 {
+            transition: all .3s ease-in-out;
+            .col-sm-3:nth-of-type(2) {
+                transform: translateX(-30%);
+                transition: all .3s ease-in-out;
+            }
+        
+            .col-sm-3:nth-of-type(3) {
+                transform: translateX(-60%);
+                transition: all .3s ease-in-out;
+            }
+            .col-sm-3:last-of-type {
+                transform: translateX(-90%);
+                transition: all .3s ease-in-out;
+            }
+            &:hover {
+                .col-sm-3:nth-of-type(2) {
+                    transform: translateX(0%);
+                }
+            
+                .col-sm-3:nth-of-type(3) {
+                    transform: translateX(0%);
+                }
+                .col-sm-3:last-of-type {
+                    transform: translateX(0%);
+                }
+            }
+        }
+        .effect-magazine3 {
+            transition: all .3s ease-in-out;
+            .col-sm-3:nth-of-type(2) {
+                transform: translateX(-20%);
+                transition: all .3s ease-in-out;
+            }
+        
+            .col-sm-3:nth-of-type(3) {
+                transform: translateX(-30%);
+                transition: all .3s ease-in-out;
+            }
+            .col-sm-3:last-of-type {
+                transform: translateX(-40%);
+                transition: all .3s ease-in-out;
+            }
+            &:hover {
+                .col-sm-3:nth-of-type(2) {
+                    transform: translateX(0%);
+                }
+            
+                .col-sm-3:nth-of-type(3) {
+                    transform: translateX(0%);
+                }
+                .col-sm-3:last-of-type {
+                    transform: translateX(0%);
+                }
+            }
+        }
+    }
+
+}

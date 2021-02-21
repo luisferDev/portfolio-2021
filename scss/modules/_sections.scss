@@ -1,0 +1,903 @@
+// --------------------------------------------------------------------------------
+// SECTIONS
+// --------------------------------------------------------------------------------
+// Section Hero Header
+// ------------------------------------------------------------------------------
+
+#headerintro {
+    overflow: hidden;
+    width: 100%;
+    height: rem(550);
+    position: relative;
+
+    @include bp(lg) {
+        height: 100vh;
+    }
+
+    @include mq("mobile-landscape") {
+        height: 100vh;
+    }
+
+
+    .slidebg {
+        width: 100vw;
+        height: max-content;
+        position: absolute;
+        top: -100vw;
+        overflow: hidden;
+    }
+
+    .headphones {
+
+        width: 65%;
+        height: auto;
+        left: 45%;
+        position: absolute;
+        bottom: -100vh;
+        overflow: hidden;
+        margin-bottom: 20vh;
+        transform: rotate(-60deg);
+
+        @include bp($screen-md) {
+            width: 25%;
+            left: 45%;
+            margin-bottom: 0;
+            transform: none;
+        }
+        @include bp($screen-sm) {
+            width: 25%;
+            left: 45%;
+            margin-bottom: 0;
+            transform: none;
+        }
+
+        @include mq("mobile-landscape") {
+            width: 25%;
+            left: 45%;
+            margin-bottom: 0;
+            transform: none;
+        }
+
+    }
+
+    .keyboard {
+        width: 32%;
+        left: 13%;
+        overflow: hidden;
+        height: auto;
+        position: absolute;
+        bottom: -100vw;
+
+        @include bp(xs) {
+            width: 90%;
+            left: -45%;
+        }
+        @include mq("mobile-landscape") {
+            width: 32%;
+            left: 13%;
+            overflow: hidden;
+        }
+    }
+
+    .mouse {
+        width: 15%;
+        margin-bottom: 0;
+        height: auto;
+        position: absolute;
+        right: 15%;
+        bottom: -100vh;
+        z-index: 1;
+        
+        @include bp(xs) {
+            width: 40%;
+            margin-bottom: rem(-30);
+            overflow: hidden;
+        }
+        @include mq("mobile-landscape") {
+            width: 15%;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+    }
+
+    .hero-content {
+        z-index: 1;
+        padding: rem($gutter *1.5);
+
+        @include bp(md) {
+            padding: rem($gutter * 2.5);
+        }
+
+        @include bp(xl) {
+            padding: 0;
+        }
+    }
+
+    .hero-title {
+        font-weight: 900;
+        color: $yellow-light;
+        text-shadow: $txt-shadow;
+        margin-top: calc(100vh - 90vh);
+
+        @include mq("mobile-landscape") {
+            margin-top: 10%;
+        }
+
+        @include bp(md) {
+            margin-top: 16vh;
+        }
+
+        h1,
+        h2 {
+            @include bp(xs) {
+                margin-bottom: 0;
+            }
+        }
+
+        h3 {
+            @include bp(xs) {
+                margin-top: rem(10);
+                max-width: 80%;
+            }
+        }
+
+        .text-white {
+
+            @include bp(md) {
+                line-height: 2;
+            }
+        }
+    }
+
+    .more-box {
+        display: none;
+        position: absolute;
+        right: 18.5%;
+        transform: translateY(-5vh) scale(0.7);
+
+        @include bp($screen-md, $screen-lg-max) {
+            display: block;
+        }
+
+        @include bp(xl) {
+            display: block;
+            transform: translateY(0) scale(0.7);
+            right: 19.5%;
+        }
+
+        a {
+            font-weight: 300;
+            font-size: rem(16);
+            letter-spacing: rem(2.5);
+            text-decoration: none;
+        }
+
+        span {
+            display: block;
+            animation: up_down 1s ease-in-out infinite;
+            animation-delay: 2s;
+
+            &::before {
+                content: url("../images/arrowdown.png");
+                width: rem(80);
+                height: rem(80);
+                z-index: 2;
+            }
+        }
+    }
+
+}
+
+// ------------------------------------------------------------------------------
+// SECTION ABOUT
+// ------------------------------------------------------------------------------
+#about {
+    overflow: hidden;
+
+    &.st-about {
+
+        >.row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-fluid {
+
+            @include bp(xs) {
+                height: rem(300);
+                object-fit: cover;
+                object-position: top;
+            }
+
+            @include mq("mobile-landscape") {
+                object-fit: cover;
+                object-position: left top;
+                position: absolute;
+                width: 30%;
+                left: 0;
+                height: rem(160);
+            }
+
+        }
+
+        // Sólo para Landscape Modile
+        // --------------------------------------
+        .col-md-3,
+        .col-md-9 {
+            @include mq("mobile-landscape") {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .about-col2 {
+        z-index: 0;
+
+        .typewrite-txt {
+            margin-bottom: rem($gutter * 4);
+        }
+    }
+
+    .about-title {
+        @include bp(xs) {
+            min-height: rem(190);
+
+            &:first-child {
+                margin-top: rem($gutter*2);
+            }
+        }
+
+        @include mq("mobile-landscape") {
+            min-height: rem(160);
+
+            .mid {
+                font-size: rem(38);
+            }
+
+            &:first-child {
+                margin-top: rem($gutter*2);
+                transform: translate(30%);
+            }
+        }
+    }
+
+    .mid {
+        margin-bottom: 0;
+    }
+}
+
+
+// ------------------------------------------------------------------------------
+// SECTION SKILLS
+// ------------------------------------------------------------------------------
+#skills {
+
+    height: auto;
+    padding-top: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    box-shadow: $box-shadow-section;
+    padding-bottom: rem($gutter*4);
+
+    @include mq("mobile-landscape") {
+        margin: 0;
+    }
+
+    @include bp(lg) {
+        padding-bottom: rem($gutter*5);
+        margin-left: rem(-100);
+    }
+    @include bp(md) {
+        margin-left: rem(-100);
+    }
+    @include bp(xl) {
+        margin-left: rem(-100);
+    }
+
+    h2 {
+        
+        @include bp(sm) {
+            padding-right: rem($gutter*4);
+        }
+
+        @include bp(md) {
+            padding-right: 0;
+        }
+    }
+
+    .mid {
+        text-align: right;
+
+        @include bp(xs) {
+           
+            margin-top: rem(40);
+            margin-bottom: rem(20);
+            margin-right: rem(20);
+        }
+
+        @include bp(sm) {
+            font-size: 5vw;
+            line-height: 1;
+            padding-top: rem($gutter*4);
+        }
+    }
+
+    .info {
+        padding: rem($gutter * 1.5);
+        padding-bottom: rem(10);
+
+        @include bp(sm) {
+            padding: rem($gutter);
+            transform: translateX(-5px) scale(.87);
+        }
+
+        @include mq("mobile-landscape") {
+            min-height: rem(220);
+        }
+    }
+
+    .col-md-6 {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-flow: row wrap;
+        align-content: center;
+        border: 0 !important;
+        box-shadow: none !important;
+
+        >.row {
+            border: 0 !important;
+            box-shadow: none !important;
+
+            @include bp(xs) {
+                box-shadow: $box-shadow-bottom;
+                transform: scale(.9);
+            }
+        }
+
+        @include bp($screen-xl) {
+            max-width: rem(700);
+            max-height: rem(700);
+        }
+    }
+
+    .img-fluid {
+        width: 100%;
+        height: rem(170);
+        object-fit: cover;
+
+        @include bp(sm) {
+            height: rem(250);
+        }
+
+        @include bp(md) {
+            height: rem(330);
+        }
+    }
+
+    .card {
+        background-color: transparent;
+        border: 0;
+        
+        @include bp(xs) {
+            padding: rem(10);
+
+            &:nth-of-type(1) {
+                margin-top: rem(10)
+            }
+        }
+
+        @include bp(sm) {
+            padding: 0 rem(80);
+        }
+
+        @include bp(md) {
+            padding: 0;
+        }
+
+    }
+}
+
+// ------------------------------------------------------------------------------
+// SECTION TOOLS
+// ------------------------------------------------------------------------------
+
+#tools {
+    
+    width: 100%;
+    margin-top: rem($gutter * 3);
+    @include flex-center;
+
+    @include bp(lg) {
+        min-height: 100vh;
+        padding-top: rem($gutter * 5);
+        padding-bottom: rem($gutter * 5);
+    }
+
+    @media (max-width: 1600px) {
+        max-width: 88%;
+    }
+
+    @include mq("mobile-landscape") {
+        >.row {
+            width: 80%;
+            padding-bottom: rem($gutter * 2);
+        }
+    }
+
+    .flexslider {
+        width: 100%;
+        height: auto;
+        border: none !important;
+        border-radius: 0 !important;
+
+        img {
+            &.logos-tools {
+                width: 50%;
+
+                @include bp(xs) {
+                    width: 75%;
+                }
+            }
+
+            &.tools-header {
+                width: 50%;
+
+                @include bp(xs) {
+                    width: 40%;
+                }
+            }
+        }
+
+        [class^="col-"] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-control-paging li a {
+            width: rem(35);
+            height: rem(4);
+            background: $black;
+            background: rgba($black, 0.5);
+            box-shadow: inset rem(-1) rem(-1) rem(2) rgba(rgba($black, 0.5), 0.5);
+            border-radius: none !important;
+
+            @include bp(sm) {
+                width: rem(65);
+            }
+
+            &.flex-active {
+                background: $yellow-light;
+            }
+        }
+
+        .flex-control-nav {
+            bottom: rem(-60);
+        }
+
+        .flex-direction-nav {
+            a {
+                width: rem(50);
+                height: rem(50);
+                color: rgba($black, .8);
+                text-shadow: rem(5) rem(2) 0 rgba($yellow-light, .9);
+                transition: all .3s ease-in-out;
+            }
+        }
+
+        .slides {
+            box-shadow: 0 rem(10) rem(15) rem(-10);
+
+            li .row {
+                @include bp(xs) {
+                    .col-md-5 {
+                        height: 25vh;
+                    }
+
+                    .col-md-7 {
+                        height: 40vh;
+                    }
+                }
+
+                @include mq("mobile-landscape") {
+
+                    .col-md-5 {
+                        height: 80vh;
+                    }
+
+                    .col-md-7 {
+                        height: max-content;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .flex-c {
+        padding-right: rem($gutter * 5);
+        padding-top: rem($gutter * 5);
+        @include flex-center;
+    }
+
+    .flex-r {
+        padding-right: rem($gutter * 5);
+        padding-top: rem($gutter * 5);
+        @include flex-right;
+    }
+}
+
+// ------------------------------------------------------------------------------
+// SECTION LOGIN
+// ------------------------------------------------------------------------------
+#login {
+    height: max-content;
+    background: $aquamarine;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    
+    @include bp(sm) {
+        margin-left: 0;
+        padding: rem(80);
+    }
+    @include bp(md) {
+        margin-left: rem(100);
+    }
+    @include bp(lg) {
+        padding: 0;
+        margin-left: rem(100);
+        box-shadow: $box-shadow-section;
+    }
+    .container {
+        padding: 0;
+
+        @include bp(xs) {
+            padding: rem(40);
+        }
+        
+        @include mq("mobile-landscape") {
+            padding: rem(60);
+        }
+
+        @include bp($screen-lg-max) {
+            padding-left: rem(100);
+            padding-right: rem(100);
+        }
+
+        @include bp(xl) {
+            max-width: 1600px;
+            padding-left: rem(50);
+            padding-right: rem(50);
+        }
+    }
+
+    #open {
+        margin-top: 0;
+    }
+
+    .mob {
+        width: 100%;
+        object-fit: contain;
+        height: rem(350);
+        object-position: left;
+
+        @include mq("mobile-landscape") {
+            transform: none;
+
+        }
+
+        @include bp(md) {
+            height: rem(500);
+            margin-left: rem(60);
+            object-position: center;
+        }
+    }
+
+    #pr {
+        display: none;
+        transition: all 1s;
+        margin: inherit;
+    }
+
+    .form-toogle {
+        max-width: rem(300);
+        background-color: $orange;
+        transition: all 1s;
+        box-shadow: $box-shadow-bottom;
+        
+
+        @include bp(xs) {
+            padding: rem(20);
+            margin-bottom: rem(-40);
+            transform: translateY(-70px);
+        }
+
+        @include bp(sm) {
+            padding: rem(20);
+        }
+
+        @include bp(md) {
+            transform: translate(-30px, 95px) scale(.92);
+        }
+
+        @include bp(xl) {
+            transform: translate(-75px, 90px);
+        }
+    }
+
+    #formlog {
+        display: flex;
+        flex-flow: column nowrap;
+
+        input {
+            outline: none !important;
+            margin: rem(8) !important;
+            padding: rem(10) !important;
+
+            &[type="text"],
+            &[type="password"] {
+                
+                @include bp(sm) {
+                    padding: rem(12) rem(8);
+                }
+
+                @include bp(md) {
+                    padding: rem(12);
+                }
+
+            }
+
+            &.btn {
+
+                @include bp(sm) {
+                    padding: rem(10) rem(15);
+                }
+                @include bp(md) {
+                    padding: rem(15) rem(40);
+                }
+            }
+        }
+
+    }
+}
+
+// ------------------------------------------------------------------------------
+// SECTION PORTFOLIO
+// ------------------------------------------------------------------------------
+
+#works {
+
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    box-shadow: $box-shadow-section;
+
+    @include bp(md) {
+        margin-top: rem(100);
+        margin-left: rem(-100);
+    }
+
+    @include bp(lg) {
+        min-height: 100vh;
+        margin-left: rem(-100);
+        margin-top: rem(100);
+    }
+
+    .tabimg img {
+        background-color: $orange;
+
+        @include bp(xs) {
+            object-fit: cover;
+            width: 100%;
+            height: rem(200);
+        }
+
+        @include mq("mobile-landscape") {
+            object-fit: cover;
+            width: 100%;
+            height: rem(250);
+        }
+
+        @include bp(md) {
+            margin-left: rem(50);
+        }
+    }
+
+    .content-txt {
+        margin-top: rem($gutter * 1.5);
+
+        @include bp(md) {
+            margin-top: rem($gutter*2.5);
+        }
+
+        >[class*="col-"] {
+
+            @include bp(sm) {
+                padding: rem(15);
+            }
+        }
+    }
+
+    .ih-item {
+        .img {
+            img {
+                height: rem(200);
+                width: 100%;
+                object-fit: cover;
+                object-position: center left;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                mix-blend-mode: multiply;
+                background: rgba($aquamarine, 0.4);
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background: rgba(0, 0, 0, .0);
+                }
+            }
+        }
+    }
+
+    .img-tab {
+        img {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+            object-position: top;
+        }
+    }
+
+    .img-mob {
+        width: 80%;
+        margin-top: rem($gutter*1.5);
+
+        @include mq("mobile-landscape") {
+            width: 20vw;
+            margin: 0 auto;
+        }
+
+        @include bp(md) {
+            width: 60%;
+            margin: 0 auto;
+        }
+    }
+
+    .box-content {
+        padding: rem(40)
+    }
+
+}
+
+// ------------------------------------------------------------------------------
+// SECTION CONTACTO
+// ------------------------------------------------------------------------------
+#contact {
+
+    @media (max-width: 1600px) {
+        max-width: 86%;
+    }
+
+    @include bp(xs) {
+        max-width: 80%;
+    }
+
+    &.st-contact {
+        margin-top: rem(100);
+        margin-bottom: rem(50);
+        height: auto;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        box-shadow: $box-shadow-section;
+        padding: rem(40) rem(20);
+
+        @include bp(sm) {
+            padding: rem(80);
+        }
+
+        @include bp(md) {
+            padding: rem(100);
+        }
+
+        .img-cup {
+            width: 60%;
+            margin: 0 auto;
+
+            @include bp(md) {
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+    }
+
+}
+
+.contact-form {
+    form {
+        display: flex;
+        flex-flow: column;
+        margin: 0 auto;
+
+        @include bp(md) {
+            width: rem(400);
+        }
+
+        label {
+            font-weight: 600;
+            font-size: rem(18);
+            margin-top: rem($gutter);
+
+            &[for="campo"] {
+                margin-bottom: rem($gutter*1.5);
+            }
+        }
+
+        input {
+            outline: none;
+
+            &[type="text"],
+            &[type="email"] {
+                font-size: rem(16);
+                padding: rem(5);
+                background: transparent;
+                border: none;
+                border-bottom: rem(1) solid $black;
+                margin-bottom: rem($gutter);
+
+                @include bp(md) {
+                    padding: rem(10);
+                }
+            }
+
+            &.btn {
+
+                border: rem(3) solid $black;
+
+                &:hover {
+                    color: $white;
+                    border: rem(3) solid $white;
+                }
+
+                @include bp(xs) {
+                    margin-top: rem(40);
+                }
+            }
+        }
+
+        textarea {
+            border: none;
+            background: rgba(232, 240, 254, 1);
+            outline: none;
+            font-size: rem(16);
+            padding: rem(10);
+            transition: all .1s ease-in;
+            box-shadow: $box-shadow-bottom;
+        }
+    }
+
+}

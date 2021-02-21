@@ -1,0 +1,209 @@
+// ----------------------------------------------------------------------------
+// Ajustes sólo Layout
+// ----------------------------------------------------------------------------
+html,
+body {
+    height: 100%;
+    width: 100%;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+[role="main"] {
+    position: relative;
+    z-index: z(default);
+    flex-grow: 1;
+    overflow: visible;
+}
+
+main {
+    overflow-x: hidden !important;
+    background-color: $grey-lightest;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+
+section {
+
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+
+    @include bp(sm) {
+        height: auto;
+        min-height: rem(600);
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    @include bp(md) {
+        height: 100vh;
+        min-height: rem(800);
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+.row.container {
+    
+    @include mq("mobile-landscape") {
+        min-width: 100%;   
+    }
+}
+
+.container {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+
+    @include bp($screen-lg-max) {
+        max-width: rem(1400);
+        margin: 0 auto;
+    }
+
+    &-inner {
+        padding: 8% 11% 5%;
+
+        @include mq("mobile-landscape") {
+            padding-top: 0;
+        }
+    }
+    &-nested {
+        padding: rem(80) rem(40);
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: start;
+        align-items: flex-end;
+    }
+}
+
+
+.box {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: rem($gutter);
+    padding-bottom: rem($gutter);
+
+    &-flex {
+        
+        @include mq("mobile-landscape") {
+            margin: 0;
+            padding: 0;
+            padding-top: rem($gutter);
+        }
+
+        @include bp(xs) {
+            padding: rem(30);
+        }
+        @include bp(sm) {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: flex-end;
+            padding-left: rem(100);
+            padding-right: rem(100);
+        }
+
+        @include bp(xl) {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0;
+
+        }
+    }
+}
+
+.bg-color- {
+    &magenta {
+        background: $magenta-light;
+        color: $white;
+    }
+
+    &aquamarine {
+        background: $aquamarine;
+        color: $black;
+    }
+
+    &mimosa {
+        background: $mimosa;
+        color: $black;
+    }
+
+    &black {
+        background: $black;
+        color: $white;
+    }
+
+    &lila {
+        background: $lila;
+        color: $white;
+    }
+
+    &beige {
+        background: $beige;
+        color: $black;
+    }
+
+    &yellowlight {
+        background: $secondary-color;
+        color: $black;
+    }
+    &yellowdark {
+        background: $yellow-dark;
+        color: $black;
+    }
+
+    &pinkdark {
+        background: $pink-dark;
+        color: $white;
+    }
+    &pinklight {
+        background: $pink-light;
+        color: $white;
+    }
+    &greysl {
+        background: $grey-sl;
+        color: $black;
+    }
+    &night {
+        background: $night;
+        color: $white;
+    }
+    &orange {
+        background: $orange;
+        color: $black;
+    }
+    
+}
+
+.ov-ly {
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url(../images/overlay-pattern.png);
+        background-repeat: repeat;
+        opacity: .5;
+    }
+}

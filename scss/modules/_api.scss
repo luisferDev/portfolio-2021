@@ -1,0 +1,269 @@
+#api {
+
+    /* ----------------------------------------------------
+ MAIN
+-------------------------------------------------------*/
+
+    position: relative;
+
+    .inner-box {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    @media (min-width: 576px) {
+        .inner-box {
+            max-width: rem(540);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .inner-box {
+            max-width: rem(720);
+        }
+    }
+
+    @media (min-width: 1040px) {
+        .inner-box {
+            max-width: rem(1140);
+        }
+
+    }
+
+
+    /* ----------------------------------------------------
+    Hero
+-------------------------------------------------------*/
+
+
+    &.api-search .hero h1,
+    &.api-search .hero .h1,
+    &.api-search .hero h2,
+    &.api-search .hero .h2 {
+        font-family: 'Ubuntu', sans-serif;
+        margin: 0 0 0.5555555556rem;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: none;
+        margin-bottom: 2rem;
+    }
+
+    &.api-search {
+        padding-top: rem($gutter*2);
+    }
+
+
+    &.api-search>[class*="col-"],
+    .api-results [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &.api-search>.row,
+    .api-results>.row {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    &.api-search .hero>.row {
+        height: auto;
+    }
+
+
+    &.api-search .col-f {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-evenly;
+        padding-left: 5%;
+        z-index: 1;
+    }
+
+    &.api-search .hero {
+        color:$black;
+        background-color: $black;
+        background-image: url(../images/api/bg-broker.png);
+        background-repeat: repeat;
+        background-size: cover;
+        background-position: 0 0;
+        animation: slide 90s infinite linear;
+        min-height: rem(520);
+        margin-top: 0;
+        padding: rem(40);
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+        &.api-search .hero {
+            height: auto;
+            margin-top: calc(100vh - 85vh);
+            margin-bottom: calc(100vh - 85vh);
+        }
+    }
+
+    @media only screen and (min-width: 375px) and (max-width: 812px) and (orientation: landscape) {
+        &.api-search .hero {
+            height: auto;
+            margin-bottom: calc(100vh - 85vh);
+        }
+    }
+
+
+    &.api-search .hero img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+    }
+
+    @keyframes slide {
+        from {
+            background-position: 0 0;
+        }
+
+        to {
+            background-position: -100vh 0;
+        }
+    }
+
+    &.api-search .api-title {
+        color: $white;
+    }
+
+    &.api-search .api-title span {
+        display: block;
+    }
+
+    &.api-search .api-title .h1,
+    &.api-search .api-title .h2 {
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: 1;
+    }
+
+    &.api-search .api-title .h1 {
+        font-size: rem(60);
+    }
+
+    &.api-search .api-title .h3 {
+        font-size: rem(50);
+        font-weight: 700;
+    }
+
+    @media (min-width: 1024px) {
+
+        &.api-search .api-title .h1,
+        &.api-search .api-title .h2,
+        &.api-search .api-title .h3 {
+            font-size: 4vw;
+        }
+    }
+
+    &.api-search .caja {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        padding: 1rem;
+        border: rem(3) solid $black;
+        border-radius: rem(5);
+        background: rgba($white, .8);
+        box-shadow: rem(8) rem(8) 0 rgba($black, 0.2);
+        transform: translateX(-$gutter), scale(0.9);
+
+        @include bp(lg) {
+            width: 80%;
+        }
+
+        p, 
+        span,
+        a,
+        button.btn {
+            font-family: 'Questrial', sans-serif;
+            text-transform: none;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        &.api-search .caja {
+            padding: rem(10) rem(15);
+        }
+    }
+
+    &.api-search .img-still {
+        position: absolute;
+    }
+
+    &.api-search .message {
+        font-size: 0.9rem;
+        margin-top: 0;
+    }
+
+    @media (min-width: 768px) {
+        &.api-search .message {
+            font-size: 1.1rem;
+        }
+    }
+
+    &.api-search .message span {
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: block;
+        margin: rem(5) 0;
+    }
+
+    @media (min-width: 768px) {
+        &.api-search .message span {
+            font-size: 0.9rem;
+        }
+    }
+
+    &.api-search button.btn {
+        font-size: rem(18);
+        background: $white;
+        padding: rem(1) rem($gutter);
+        border: rem(3) solid $black;
+        margin-right: 2.6rem;
+        box-shadow: 0 0 0 $black!important;
+        transition: all 0.2s!important;
+    }
+
+    button#boton {
+        margin-top: 0.5rem;
+        font-weight: 300;
+    }
+
+    @media (min-width: 1024px) {
+        button#boton {
+            margin-top: 0;
+        }
+    }
+
+    &.api-search button.btn:last-child {
+        margin: 0;
+    }
+
+    &.api-search .caja button.btn:hover {
+        box-shadow: 0.4rem 0.4rem 0 $black!important;
+        transform: translate(-0.4rem, -0.4rem);
+    }
+
+    &.api-search .caja button.btn:active {
+        box-shadow: 0 0 0 $black!important;
+        transform: translate(0, 0);
+    }
+    input#buscar {
+        max-width: 90%;
+    }
+
+    button#boton {
+        margin-top: 0.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+        button#boton {
+            margin-top: 0;
+        }
+    }   
+}
